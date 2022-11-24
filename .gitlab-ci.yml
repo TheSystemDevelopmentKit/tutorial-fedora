@@ -1,0 +1,17 @@
+default:
+  image: registry.gitlab.com/coursegit/exercise_manager:latest
+      # We could build an image registry with the dependencies installed.
+      #registry.gitlab.com/a-core/a-core_thesydekick/thesydekick-docs-build:main
+
+pages:
+  stage: deploy
+  script:
+      - ./CI-helpers/build_docs.sh -c -m "$(pwd)" 
+
+  artifacts:
+    paths:
+      - public
+
+  only:
+      - master 
+
