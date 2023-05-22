@@ -12,7 +12,8 @@ RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
 RUN dnf -y install tcsh xterm make git screen vim-X11 
 RUN dnf -y install ngspice iverilog 
-RUN dnf -y install python3 python3-pip python3-sphinx 
+RUN dnf -y install python3 python3-pip python3-sphinx
+RUN dnf -y install kicad
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
 RUN for module in "PyYaml  numpy  scipy  h5py  wheel zmq  shapely  rtree  future  jinja2  IPython  openmdao  sphinx_rtd_theme  python-gitlab  "; do pip3 install $module; done
