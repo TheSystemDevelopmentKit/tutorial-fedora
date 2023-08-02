@@ -1,40 +1,18 @@
-Building a Docker image
-=======================
+# Setup.
+Great instructions setting up Docker for X11 applications is here
+https://blog.yadutaf.fr/2017/09/10/running-a-graphical-app-in-a-docker-container-on-a-remote-server
 
-The contents of the image is defined with Dockerfile.
+No remote server needed, we just want to run an Xterm
+Launch it with 
+`docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix
+course/fedora-36:latest xterm `
 
-Build it in the directory containing the Dockerfile with
-`docker build .`
-
-To build it to be a container registry of a project gfo Gitlab
-```
-docker login registry.gitlab.com
-docker build -t <server>/<group>/<project> .
-docker push <server>/<group>/<project>
-```
-
-Using container registry in Gitlab
-==================================
-At minimum, you need a .gitlab-ci.yaml file. This example builds
-documentation. (The contents of the 'pages' pipeline is assumed to be in directory 'pubic').
-```
-default:
-  image: registry.gitlab.com/coursegit/exercise_manager:latest
-      # We could build an image registry with the dependencies installed.
-      #registry.gitlab.com/a-core/a-core_thesydekick/thesydekick-docs-build:main
-
-pages:
-  stage: deploy
-  script:
-      - ./CI-helpers/build_docs.sh -c -m "$(pwd)" 
-
-  artifacts:
-    paths:
-      - public
-
-  only:
-      - master
-```
+# Mounting volumes
+https://docs.docker.com/storage/volumes/
 
 
+# Cleaning up docker builds and images
+https://kenanbek.medium.com/docker-cleanup-build-and-force-to-rebuild-images-containers-volumes-and-networks-dc70fd4ccec0
+
+`docker system prune -a`
 

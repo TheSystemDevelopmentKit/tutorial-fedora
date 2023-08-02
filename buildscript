@@ -3,7 +3,8 @@ docker volume ls
 docker volume inspect procoder-home
 #docker volume rm my-vol
 
-#docker build -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora-36:latest .
-docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora-36:latest
-docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix  ghcr.io/thesystemdevelopmentkit/tutorial-fedora-36:latest xterm
+#docker build -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest .
+#docker push -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
+docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
+docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest xterm
 
