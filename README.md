@@ -6,16 +6,21 @@ playground for studies of TheSyDeKick and some other Open Source electroniccs
 desing tools. It provides a simple command line interface with X11 capabilities
 and a elementary text editor (vim) for editing the files, all the needed software 
 for running TheSyDeKick simulations with Open Source simulator tools, added with KiCAD 
-electronics design software for drawing schematics and printed circuit boards.     
+electronics design software for drawing schematics and printed circuit boards.    
 
 ## How to install and run the image 
 To use tutorial fedora docker you  must have
 
   1. Github account at [https://github.com](https://github.com)
-  2. Personal Access token (classic in this case) with at least 'read' permissions for packages as instructed at 
-  [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). 
-  Use your considerations if you wish to add more access rights to the token. REMEMBER TO STORE THE TOKEN preferably safely. 
-  3. Docker installed in your host operating system.
+  2. Personal Access token (classic in this case) with at least 'read' permissions for
+     packages as instructed at [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+     Use your considerations if you wish to add more access rights to the token. REMEMBER TO STORE THE TOKEN preferably safely. 
+  4. Docker installed in your host operating system.
+
+### Default user and home directory
+The default user in the docker image is 'procoder' and the setup is made and documented so that 
+it uses home directory '/home/proceder'.
+
 ### Linux
 Although it does not mae much sense to use Linux docker image inside Linux,
 here are the instructions. All the commands given below are assumed to be ran on command line.
@@ -26,7 +31,7 @@ Create it with
 
 `docker volume create procoder-home`
 
-Name 'procoder-home' refers to the home directory of the user 'procoder', which is the default user in the tutorial-fedora docker-image.
+Name 'procoder-home' refers to the home directory of the user 'procoder'.
 
 To examine the existing volumes, use
 `docker volume ls`
@@ -38,9 +43,10 @@ To remove volumes you do not need, you can
 More information about volumes at [https://docs.docker.com/storage/volumes/](https://docs.docker.com/storage/volumes/)
 
 #### Pull and run the image
-Login to github package registry with your personal access token (in my case, the token was stored in ~/.gnupg/Github_token.txt ) 
+Login to github package registry with your personal access token (stored in this case to ./TOKEN.txt 
+file)
 ```
-cat ~/.gnupg/Github_token.txt | docker login ghcr.io --username mkosunen --password-stdin
+cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
 
 docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 
