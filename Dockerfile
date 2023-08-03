@@ -9,7 +9,7 @@ FROM ghcr.io/thesystemdevelopmentkit/thesdktestimage:latest
 
 # Software installations from repositories
 RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
-RUN dnf -y install hostname pciutils qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
+RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
 RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 #RUN dnf -y install mesa-libGL mesa-libGL*
