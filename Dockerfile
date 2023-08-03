@@ -15,7 +15,7 @@ RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel
 #RUN dnf -y install mesa-libGL mesa-libGL*
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
 RUN dnf -y install tcsh xterm make screen vim-X11 wget gcc-gnat
-RUN dnf -y install kicad
+RUN dnf -y install kicad okular evince
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
 RUN useradd -ms /bin/tcsh procoder
