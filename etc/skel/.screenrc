@@ -1,0 +1,41 @@
+defscrollback 50000
+term screen-256color
+startup_message off
+mousetrack off 
+
+#Copy with space to system clipboard
+bindkey -m eval "writebuf" "exec sh -c 'exec xsel -b --display :0 -i < /tmp/screen-exchange'"
+                                                         
+
+screen -t Workhorse
+screen -t Vim
+
+
+#layouts
+#layout new two
+layout autosave on
+split -v
+select 0
+focus right
+select 1
+focus left
+
+
+#Vim like vetical split
+bind v eval "split -v"
+bind s eval "split"
+bind h eval "focus left"
+bind j eval "focus down"
+bind k eval "focus up"
+bind l eval "focus right"
+
+
+# F2 puts Screen into resize mode. Resize regions using hjkl keys.
+bindkey "^[OQ" eval "command -c rsz" # enter resize mode
+
+# use hjkl keys to resize regions
+bind -c rsz h eval "resize -h -5" "command -c rsz"
+bind -c rsz j eval "resize -v -5" "command -c rsz"
+bind -c rsz k eval "resize -v +5" "command -c rsz"
+bind -c rsz l eval "resize -h +5" "command -c rsz"
+

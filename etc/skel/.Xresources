@@ -1,0 +1,67 @@
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+
+xterm*background:            #fdf6e3
+xterm*foreground:            #657b83
+xterm*fadeColor:             #fdf6e3
+xterm*cursorColor:           #586e75
+xterm*pointerColorBackground:#93a1a1
+xterm*pointerColorForeground:#586e75
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+!! black dark/light
+xterm*color0:                #073642
+xterm*color8:                #002b36
+
+!! red dark/light
+xterm*color1:                #dc322f
+xterm*color9:                #cb4b16
+
+!! green dark/light
+xterm*color2:                #859900
+xterm*color10:               #586e75
+
+!! yellow dark/light
+xterm*color3:                #b58900
+xterm*color11:               #657b83
+
+!! blue dark/light
+xterm*color4:                #268bd2
+xterm*color12:               #839496
+
+!! magenta dark/light
+xterm*color5:                S_magenta
+xterm*color13:               S_violet
+
+!! cyan dark/light
+xterm*color6:                #2aa198 
+xterm*color14:               #93a1a1
+
+!! white dark/light
+xterm*color7:                #eee8d5
+xterm*color15:               #fdf6e3
+
+
+
+xterm*loginShell: true
+xterm*vt100*geometry: 160x80
+xterm*saveLines: 2000
+xterm*termName: xterm-256color
+xterm*font:     *-fixed-*-*-*-18-*
+xterm*rightScrollBar: true
+xterm*scrollTtyOutput: false
+
