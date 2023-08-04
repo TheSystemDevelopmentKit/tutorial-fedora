@@ -2,13 +2,19 @@
 
 The contents of the image is defined with Dockerfile.
 
+The build process is defined in Makefile. try `make help` for instructions.
+Makefile handles everything except docker login.
+
+## Collections of useful Docker commands
+In case you need to develop the Makefile, below is a small collection of useful docker commands.
+
 Build it in the directory containing the Dockerfile with
 `docker build .`
 
 Useful commands for building
 
 ```
-cat ~/.gnupg/Github_token.txt | docker login ghcr.io --username mkosunen --password-stdin
+cat ~/.gnupg/Github_token.txt | docker login ghcr.io --username <YOUR_username> --password-stdin
 docker build -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest .
 docker push -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
