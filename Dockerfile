@@ -6,7 +6,9 @@
 #FROM fedora:36
 # Use thesdk testimage as basis as it has all Thesdkdependencies already.
 FROM ghcr.io/thesystemdevelopmentkit/thesdktestimage:latest
-
+RUN sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
+RUN dnf install -y man-pages man-db coreutils-common coreutils
+RUN dnf reinstall -y man-pages man-db coreutils-common coreutils
 # Software installations from repositories
 RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
 RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
@@ -14,7 +16,7 @@ RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 #RUN dnf -y install mesa-libGL mesa-libGL*
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
-RUN dnf -y install tcsh xterm make screen vim-X11 wget gcc-gnat
+RUN dnf install -y tcsh xterm make screen vim-X11 wget gcc-gnat
 RUN dnf -y install kicad okular evince
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
