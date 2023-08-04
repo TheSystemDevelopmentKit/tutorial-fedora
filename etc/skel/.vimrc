@@ -81,7 +81,10 @@ filetype plugin indent on    " required
 
 syntax enable
 set background=light
-colorscheme solarized
+try
+    colorscheme solarized
+    catch
+endtry
 
 set expandtab shiftwidth=4 tabstop=4 
 set number

@@ -18,6 +18,15 @@ RUN dnf -y install tcsh xterm make screen vim-X11 wget gcc-gnat
 RUN dnf -y install kicad okular evince
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
+# Add user default setup files
+ADD --chown=root:root ./etc/skel/.cshrc /etc/skel/.cshrc
+ADD --chown=root:root ./etc/skel/.ctags /etc/skel/.ctags
+ADD --chown=root:root ./etc/skel/.login /etc/skel/.login
+ADD --chown=root:root ./etc/skel/.screenrc /etc/skel/.screenrc
+ADD --chown=root:root ./etc/skel/.vimrc /etc/skel/.vimrc
+ADD --chown=root:root ./etc/skel/xfexinitrc /etc/skel/xfexinitrc
+ADD --chown=root:root ./etc/skel/.Xresources /etc/skel/.Xresources
+ADD --chown=root:root ./etc/skel/Xresources.desktop /etc/skel/Xresources.desktop
 RUN useradd -ms /bin/tcsh procoder
 
 # At his point we are ready for TheSDK and KiCAD
