@@ -19,7 +19,7 @@ To use tutorial fedora docker you  must have
 
 ### Default user and home directory
 The default user in the docker image is 'procoder' and the setup is made and documented so that 
-it uses home directory '/home/proceder'.
+it uses home directory '/home/proceder'. Default password for the user is 'procoderpasswd'
 
 ### Linux
 Although it does not mae much sense to use Linux docker image inside Linux,

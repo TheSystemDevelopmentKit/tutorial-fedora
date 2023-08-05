@@ -29,9 +29,12 @@ ADD --chown=root:root ./etc/skel/.vimrc /etc/skel/.vimrc
 ADD --chown=root:root ./etc/skel/xfexinitrc /etc/skel/xfexinitrc
 ADD --chown=root:root ./etc/skel/.Xresources /etc/skel/.Xresources
 ADD --chown=root:root ./etc/skel/Xresources.desktop /etc/skel/Xresources.desktop
-RUN useradd -ms /bin/tcsh procoder
 
-# At his point we are ready for TheSDK and KiCAD
+#Add passwd just to have something if asked.
+RUN useradd -ms /bin/tcsh procoder && echo procoderpasswd | passwd procoder --stdin
+
+
+# At his point we are ready with TheSDK and KiCAD
 
 # Let's install Xschem
 #RUN dnf -y install tk-devel libXpm-devel flex bison
