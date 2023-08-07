@@ -55,9 +55,26 @@ docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/
 
 It should launch a new 'xterm' terminal. If the terminal for some reason freezes with the first run, use CTRL-C to abort the docker run, and re-run it. Helped for me at least.
 
+### Windows
+#### Create Docker volume 'Filesystem'
+TBD
+#### Pull and run the image
+TBD
+
+
+### MacOS
+#### Create Docker volume 'Filesystem'
+TBD
+#### Pull and run the image
+TBD
+
 ## Cleaning up docker builds and images
 ### Linux
 https://kenanbek.medium.com/docker-cleanup-build-and-force-to-rebuild-images-containers-volumes-and-networks-dc70fd4ccec0
-
 `docker system prune -a`
+
+### Windows
+
+### MacOS
+
 
