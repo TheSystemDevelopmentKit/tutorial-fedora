@@ -16,7 +16,7 @@ RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 #RUN dnf -y install mesa-libGL mesa-libGL*
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
-RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat
+RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat git-core git-core-doc git-subtree firefox
 RUN dnf -y install kicad okular evince
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
