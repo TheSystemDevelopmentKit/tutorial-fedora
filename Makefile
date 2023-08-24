@@ -19,6 +19,14 @@ run:
 		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
 		xterm
 
+run_screen:
+	docker run --device /dev/dri -it --rm \
+		--mount source=procoder-home,target=/home/procoder \
+		-e DISPLAY=${DISPLAY} \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
+		xterm -e screen
+
 pull: 
 	docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 
