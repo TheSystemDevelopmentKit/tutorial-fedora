@@ -14,8 +14,6 @@ RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonf
 RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
 RUN dnf install -y xorg-x11-drivers
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
-#RUN dnf -y install mesa-libGL mesa-libGL*
-#RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
 RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat git-core git-core-doc git-subtree firefox
 RUN dnf -y install kicad okular evince gtkwave spectacle xv
 RUN dnf -y install passwd 
@@ -46,7 +44,6 @@ RUN useradd -ms /bin/tcsh procoder && echo procoderpasswd | passwd procoder --st
 #RUN dnf -y install magic magic-doc python3-chardet
 #RUN git clone git://opencircuitdesign.com/open_pdks
 #RUN cd open_pdks/ && git checkout 1.0.425 && ./configure --enable-sky130-pdk --enable-sram-sky130 --prefix /usr/local/open-sky130 && make && make install && cd .. && rm -rf open-pdks
-
 USER procoder
 WORKDIR /home/procoder
 
