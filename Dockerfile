@@ -9,10 +9,10 @@ RUN sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
 RUN dnf install -y man-pages man-db coreutils-common coreutils
 RUN dnf reinstall -y man-pages man-db coreutils-common coreutils
 # Software installations from repositories
-RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-38.noarch.rpm
-RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
 RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
-RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
+RUN dnf install -y xorg-x11-drivers
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 #RUN dnf -y install mesa-libGL mesa-libGL*
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
