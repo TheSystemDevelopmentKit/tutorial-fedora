@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   # run it on push to the default repository branch
   push:
-    branches: [master]
+    branches: [arm64]
   # run it during pull request
   #pull_request:
 
@@ -36,11 +36,12 @@ jobs:
         with:
           # relative path to the place where source code with Dockerfile is located
           context: ./
+          platforms: linux/arm64
           # Note: tags has to be all lower-case
           tags: |
-            ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
+            ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
           # build on feature branches, push only on main branch
-          push: ${{ github.ref == 'refs/heads/master' }}
+          push: ${{ github.ref == 'refs/heads/arm64' }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

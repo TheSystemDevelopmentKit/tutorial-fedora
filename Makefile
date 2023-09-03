@@ -9,29 +9,29 @@ volume:
 
 
 build:
-	docker build -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest .
+	docker buildx build --platform linux/arm64 -t ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest .
 
 run: 
-	docker run --device /dev/dri -it --rm \
+	docker run --platform linux/arm64 --device /dev/dri -it --rm \
 		--mount source=procoder-home,target=/home/procoder \
 		-e DISPLAY=${DISPLAY} \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
-		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
+		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latet \
 		xterm
 
 run_screen:
-	docker run --device /dev/dri -it --rm \
+	docker run --platform linux/arm64 --device /dev/dri -it --rm \
 		--mount source=procoder-home,target=/home/procoder \
 		-e DISPLAY=${DISPLAY} \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
-		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
+		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest \
 		xterm -e screen
 
 pull: 
-	docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
+	docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
 
 push: 
-	docker push ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
+	docker push ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
 
 help:
 	@echo "Available targets:"

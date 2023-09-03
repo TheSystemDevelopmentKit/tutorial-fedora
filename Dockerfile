@@ -3,17 +3,39 @@
 #
 # Initialized by Marko Kosunen 20221123, marko.kosunen@aalto.fi 
 #############################################################################
+FROM arm64v8/fedora:36
 # Use thesdk testimage as basis as it has all Thesdkdependencies already.
-FROM ghcr.io/thesystemdevelopmentkit/thesdktestimage:latest
+# Software installations from repositories
+RUN dnf -y install git python3 python3-devel python3-pip ncurses-devel gcc ngspice iverilog findutils
+#RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+#RUN dnf -y install hostname pciutils qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
+#RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
+#RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
+#RUN dnf -y install mesa-libGL mesa-libGL*
+#RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
+#RUN dnf -y install tcsh xterm make git screen vim-X11 wget gcc-gnat
+RUN dnf -y install wget gcc-gnat diffutils
+RUN dnf -y install zlib-devel
+RUN dnf -y install llvm llvm-doc llvm-libunwind llvm-static llvm-test llvm-test-suite llvm-devel
+RUN dnf -y install clang clang-libs clang-devel clang-resource-filesystem clang-tools-\*
+# Install GHDL from source
+RUN cd /root && wget https://github.com/ghdl/ghdl/archive/refs/tags/v3.0.0.tar.gz && tar xzf v3.0.0.tar.gz && cd ghdl-3.0.0 && ./configure --with-llvm-config && make && make install && cd /root && rm v3.0.0.tar.gz && rm -rf ghdl-3.0.0 
+ADD --chown=root:root ./python_installs.sh /root/python_installs.sh
+RUN chmod 700 /root/python_installs.sh 
+RUN /root/python_installs.sh && rm /root/python_installs.sh
+# Run the job MUST use exec format to pass parameters
+#ENTRYPOINT ["/entrypoint.sh"]
+
+#FROM ghcr.io/thesystemdevelopmentkit/thesdktestimage:latest
 RUN sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
 RUN dnf install -y man-pages man-db coreutils-common coreutils
 RUN dnf reinstall -y man-pages man-db coreutils-common coreutils
 # Software installations from repositories
-RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-38.noarch.rpm
-RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-36.noarch.rpm
+RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
 RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
-RUN dnf install -y xorg-x11-drv-intel xorg-x11-drv-ati
-RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
+RUN dnf -y install xorg-x11-drivers
+#RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 #RUN dnf -y install mesa-libGL mesa-libGL*
 #RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
 RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat git-core git-core-doc git-subtree firefox
