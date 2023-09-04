@@ -69,10 +69,10 @@ file)
 
 For AMD/Intel processors:
 ```
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
-
-
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
+
+
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 
 
 docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest xterm
@@ -80,10 +80,10 @@ docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/
 
 For ARM64 processors:
 ```
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
-
-
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
+
+
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
 
 
 docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest xterm
@@ -99,10 +99,10 @@ file)
 
 For Intel processors:
 ```
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
-
-
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
+
+
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 ```
 Open a new terminal window (⌘-N) for socat:
 ```
@@ -115,10 +115,10 @@ docker run  --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=d
 
 For ARM64 processors:
 ```
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
-
-
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
+
+
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:arm64-latest
 ```
 Open a new terminal window (⌘-N) for socat:
 ```
