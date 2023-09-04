@@ -79,12 +79,10 @@ For ARM64 processors:
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
 docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora-arm64:latest
 docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/thesystemdevelopmentkit/tutorial-fedora-arm64:latest xterm
-=======
 ```
 
 It should launch a new 'xterm' terminal. If the terminal for some reason freezes with the first run, use CTRL-C to abort the docker run, and re-run it. Helped for me at least.
 In arm64 architectures you receive and permisison error, that currently remains to unsolved. HOwever, it does not seem to affect anything.
-git pull git@github.com:velihukka/tutorial-fedora.git master
 
 #### Pull and run the image (MacOS)
 Login to github package registry with your personal access token (stored in this case to ./TOKEN.txt 
