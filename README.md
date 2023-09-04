@@ -62,22 +62,17 @@ Login to github package registry with your personal access token (stored in this
 file)
 
 For AMD/Intel processors:
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 
 ```
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
-
-
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
 docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest xterm
 ```
 
 For ARM64 processors:
-docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora-arm64:latest
-
 ```
 cat TOKEN.txt | docker login ghcr.io --username <YOUR_USERNAME> --password-stdin
-
-
+docker pull ghcr.io/thesystemdevelopmentkit/tutorial-fedora-arm64:latest
 docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/procoder -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/thesystemdevelopmentkit/tutorial-fedora-arm64:latest xterm
 ```
 
