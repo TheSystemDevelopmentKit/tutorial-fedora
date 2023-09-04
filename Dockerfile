@@ -5,6 +5,7 @@
 #############################################################################
 # Use thesdk testimage as basis as it has all Thesdkdependencies already.
 FROM ghcr.io/thesystemdevelopmentkit/thesdktestimage:latest
+RUN echo "fastestmirror=True" >> /etc/dnf/dnf.conf
 RUN sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
 RUN dnf install -y man-pages man-db coreutils-common coreutils
 RUN dnf reinstall -y man-pages man-db coreutils-common coreutils
