@@ -67,7 +67,7 @@ More information about volumes at [https://docs.docker.com/storage/volumes/](htt
 
 ### Pull and run the image
 <details>
-<summary>Windows (WSL) and Linux</summary>
+<summary>Linux and Windows (WSL)</summary>
 	
 #### For AMD/Intel processors (most machines):
 	
@@ -84,7 +84,7 @@ docker run --device /dev/dri -it --rm --mount source=procoder-home,target=/home/
 ```
 
 It should launch a new 'xterm' terminal. If the terminal for some reason freezes with the first run, use CTRL-C to abort the docker run, and re-run it. Helped for me at least.
-In arm64 architectures you receive and permisison error, that currently remains to unsolved. HOwever, it does not seem to affect anything.
+In arm64 architectures you receive and permisison error, that currently remains to unsolved. However, it does not seem to affect anything.
 
 </details>
 
