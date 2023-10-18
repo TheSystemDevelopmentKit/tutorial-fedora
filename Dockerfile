@@ -14,6 +14,7 @@ RUN dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-re
 RUN dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
 RUN dnf -y install hostname pciutils xrdb qt qt-x11 qt5-qtbase qt5-qtwayland qt6-qtbase qt6-qtwayland
 RUN dnf install -y xorg-x11-drivers
+RUN dnf -y install libdrm mesa-dri-drivers.i686 mesa-dri-drivers.x86_64 
 RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel-hybrid-driver intel-gpu-firmware 
 RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat git-core git-core-doc git-subtree firefox
 RUN dnf -y install kicad okular evince gtkwave spectacle xv
