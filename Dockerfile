@@ -19,6 +19,7 @@ RUN dnf install -y libva-intel-driver.x86_64 libva-intel-driver.i686 libva-intel
 RUN dnf install -y tcsh xterm make screen xsel vim-X11 emacs wget gcc-gnat git-core git-core-doc git-subtree firefox
 RUN dnf -y install kicad okular evince gtkwave spectacle xv
 RUN dnf -y install passwd 
+RUN dnf -y install x11vnc net-tools
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
 # Add user default setup files
@@ -33,7 +34,7 @@ ADD --chown=root:root ./etc/skel/Xresources.desktop /etc/skel/Xresources.desktop
 
 #Add passwd just to have something if asked.
 RUN useradd -ms /bin/tcsh procoder && echo procoderpasswd | passwd procoder --stdin
-
+#EXPOSE 5920
 
 # At his point we are ready with TheSDK and KiCAD
 
