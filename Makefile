@@ -1,5 +1,7 @@
-.PHONY: all volume pull build push run run_screen run_vnc
+#Commnad to run with local docker
+CMD ?= xterm
 
+.PHONY: all volume pull build push run run_screen run_vnc
 all: create_volume build run
 
 create_volume:
@@ -17,7 +19,7 @@ run:
 		-e DISPLAY=${DISPLAY} \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
 		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
-		xterm
+		$(CMD)
 
 run_screen:
 	docker run --device /dev/dri -it --rm \

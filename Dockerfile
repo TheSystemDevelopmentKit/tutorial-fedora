@@ -21,37 +21,6 @@ RUN dnf -y install kicad okular evince gtkwave spectacle xv
 RUN dnf -y install passwd 
 RUN dnf -y install x11vnc net-tools openssl tigervnc tigervnc-server
 RUN dnf -y group install  "LXQt Desktop"
-# config lxqt
-#RUN mkdir -p /etc/skel/.config/lxqt && \
-#    echo '[General]\n\
-#__userfile__=true\n\
-#icon_theme=Adwaita\n\
-#single_click_activate=false\n\
-#theme=ambiance\n\
-#tool_button_style=ToolButtonTextBesideIcon\n\
-#\n\
-#[Qt]\n\
-#doubleClickInterval=400\n\
-#font="Sans,11,-1,5,50,0,0,0,0,0"\n\
-#style=Fusion\n\
-#wheelScrollLines=3\n\
-#' >/etc/skel/.config/lxqt/lxqt.conf && \
-#    echo '[General]\n\
-#__userfile__=true\n\
-#[Environment]\n\
-#TERM=term\n\
-#' >/etc/skel/.config/lxqt/session.conf
-#
-#RUN mkdir -p /etc/xdg/lxqt && echo '[quicklaunch]\n\
-#alignment=Left\n\
-#apps\\1\desktop=/usr/share/applications/pcmanfm-qt.desktop\n\
-#apps\\2\desktop=/usr/share/applications/qterminal.desktop\n\
-#apps\\3\desktop=/usr/share/applications/juffed.desktop\n\
-#apps\size=3\n\
-#type=quicklaunch\n\
-#' >> /etc/xdg/lxqt/panel.conf
-
-
 RUN mkdir -p /root/.local/bin
 RUN export PATH=${PATH}:/root/.local:/root/.local/bin
 # Add user default setup files
