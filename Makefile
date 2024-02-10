@@ -31,7 +31,7 @@ run_screen:
 run_vnc:
 	docker run --device /dev/dri -it --rm \
 		--mount source=procoder-home,target=/home/procoder \
-		-e VNC_GEOMETRY=3840x1600 \
+		-e VNC_GEOMETRY=$(shell xdpyinfo | grep dimensions | awk '{print $$2}') \
 		-p 5920:5920 \
 		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
 		/etc/entrypoint.sh
