@@ -1,4 +1,4 @@
-.PHONY: all volume pull build push run
+.PHONY: all volume pull build push run run_screen run_vnc
 
 all: volume build run
 
@@ -24,8 +24,17 @@ run_screen:
 		--mount source=procoder-home,target=/home/procoder \
 		-e DISPLAY=${DISPLAY} \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-p 5920:5920 \
 		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
 		xterm -e screen
+
+run_vnc:
+	docker run --device /dev/dri -it --rm \
+		--mount source=procoder-home,target=/home/procoder \
+		-e VNC_GEOMETRY=3840x1600 \
+		-p 5920:5920 \
+		ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest \
+		/etc/entrypoint.sh
 
 pull: 
 	docker pull  ghcr.io/thesystemdevelopmentkit/tutorial-fedora:latest
