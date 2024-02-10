@@ -1,8 +1,8 @@
 .PHONY: all volume pull build push run run_screen run_vnc
 
-all: volume build run
+all: create_volume build run
 
-volume:
+create_volume:
 	docker volume create procoder-home
 	#docker volume ls 
 	#docker volume inspect procoder-home
